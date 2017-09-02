@@ -1,0 +1,172 @@
+<div class="col">
+	<div class="row">
+		<div class="col-xs-12 col-md-6">
+			How old are you?
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<rzslider  rz-slider-options="{floor: 10, ceil:70}" rz-slider-model="age"></rzslider>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-xs-12 col-md-6">
+			How much experience do you have with JS?
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<rzslider rz-slider-model="jsExperience" rz-slider-options="experienceSlider.options"></rzslider>
+		</div>
+		<div class="col"><p></p></div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-xs-12 col-md-6">
+			Which JS framework do you know?
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-active btn-outline-primary buttonCheck" ng-click="angularjs = !angularjs; buttonChecked('angular',angularjs)">
+				  <input type="checkbox" autocomplete="off">
+				  <i class="devicon-angularjs-plain colored hvr-grow-rotate"></i>				  
+				</label>
+				<label class="btn btn-active btn-outline-primary buttonCheck" ng-click="reactjs = !reactjs; buttonChecked('react',reactjs)">
+				  <input type="checkbox" autocomplete="off">
+				  <i class="devicon-react-original colored hvr-grow-rotate"></i>				  
+				</label>
+				<label class="btn btn-active btn-outline-primary buttonCheck" ng-click="vuejs = !vuejs; buttonChecked('vue',vuejs)">
+				  <input type="checkbox" autocomplete="off">
+				  <i class="devicon-vuejs-plain colored hvr-grow-rotate"></i>				  
+				</label>
+				<label class="btn btn-active btn-outline-primary buttonCheck" ng-click="jquery = !jquery; buttonChecked('jquery',jquery)">
+					<input type="checkbox" autocomplete="off">
+					<i class="devicon-jquery-plain colored hvr-grow-rotate"></i>					
+				  </label>
+			  </div>
+		</div>
+	</div>
+
+	<hr ng-if="angularjs">
+	<div class="row" ng-if="angularjs">
+		<div class="col">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					How much do you love AngularJS?
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<rzslider rz-slider-model="angularOpt.love"
+						rz-slider-options="coloredSlider.options"></rzslider>
+				</div>
+			</div>
+			<p></p>
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					How much experience do you have with AngularJS?
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<rzslider rz-slider-model="angularOpt.experience" rz-slider-options="experienceSlider.options"></rzslider>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr ng-if="reactjs">
+	<div class="row" ng-if="reactjs">
+		<div class="col">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					How much do you love ReactJS?
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<rzslider rz-slider-model="reactOpt.love" rz-slider-options="coloredSlider.options"></rzslider>
+				</div>
+			</div>
+			<p></p>
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					How much experience do you have with ReactJS?
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<rzslider rz-slider-model="reactOpt.experience" rz-slider-options="experienceSlider.options"></rzslider>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr ng-if="vuejs">
+	<div class="row" ng-if="vuejs">
+		<div class="col">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					How much do you love VueJS?
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<rzslider rz-slider-model="vueOpt.love"	rz-slider-options="coloredSlider.options"></rzslider>
+				</div>
+			</div>
+			<p></p>
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					How much experience do you have with VueJS?
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<rzslider rz-slider-model="vueOpt.experience" rz-slider-options="experienceSlider.options"></rzslider>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr ng-if="jquery">
+	<div class="row" ng-if="jquery">
+		<div class="col">
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					How much do you love jQuery?
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<rzslider rz-slider-model="jqueryOpt.love" rz-slider-options="coloredSlider.options"></rzslider>
+				</div>
+			</div>
+			<p></p>
+			<div class="row">
+				<div class="col-xs-12 col-md-6">
+					How much experience do you have with jQuery?
+				</div>
+				<div class="col-xs-12 col-md-6">
+					<rzslider rz-slider-model="jqueryOpt.experience" rz-slider-options="experienceSlider.options"></rzslider>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col"><p><br></p></div>
+	<div class="row">
+		<div class="col">
+			<button class="btn btn-outline-primary btn-lg btn-block" ng-click="saveData({age: age, jsExp: jsExperience})">Results</button>
+		</div>
+	</div>
+</div>
+
+<style>
+.btn-group {
+	width: 100%;
+}
+.buttonCheck {
+	width: 100%;
+}
+.buttonCheck > i {
+	font-size: 6vw;
+}
+
+.hvr-grow-rotate {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+.hvr-grow-rotate:hover, .hvr-grow-rotate:focus, .hvr-grow-rotate:active {
+  -webkit-transform: scale(1.1) rotate(4deg);
+  transform: scale(1.1) rotate(4deg);
+}
+</style>
