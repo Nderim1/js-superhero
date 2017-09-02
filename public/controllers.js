@@ -17,9 +17,6 @@ angular.module('jsSuperheroApp', ['ui.router', 'rzModule'])
 	})
 
 	.controller('mainController', function($scope, $state, dataService) {
-		$scope.buttonChecked = function( elem, value ) {
-			console.log(elem, value)
-		}
 
 		$scope.jsExperience = 0
 		$scope.age = 22
@@ -27,27 +24,30 @@ angular.module('jsSuperheroApp', ['ui.router', 'rzModule'])
 		$scope.angularOpt = {
 			name: 'angular',
 			love: 100,
-			experience: 0
+			experience: 0,
+			iconClass: "devicon-angularjs-plain colored"
 		}
 		$scope.reactOpt = {
 			name: 'react',
 			love: 100,
-			experience: 0
+			experience: 0,
+			iconClass: "devicon-react-plain colored"
 		}
 		$scope.vueOpt = {
 			name: 'vue',
 			love: 100,
-			experience: 0
+			experience: 0,
+			iconClass: "devicon-vuejs-plain colored"
 		}
 		$scope.jqueryOpt = {
 			name: 'jquery',
 			love: 100,
-			experience: 0
+			experience: 0,
+			iconClass: "devicon-jquery-plain colored"
 		}
 
 		$scope.experienceSlider = {
 			options: {
-			//   showTicksValues: false,
 			  showTicks: true,
 			  stepsArray: [
 				{value: 0},
@@ -91,7 +91,13 @@ angular.module('jsSuperheroApp', ['ui.router', 'rzModule'])
 	.controller('resultsController', function($scope, dataService) {
 		
 		dataService.getData(function(data){
-			console.log(data)
+			var allPoints = []
+			data.frameworks.sort(function(a, b){
+				return (b.love + b.experience) - (a.love + a.experience)
+			})
+
+			$scope.frameworkName = data.frameworks[0].name
+			$scope.iconClass = data.frameworks[0].iconClass
 		})
 		
 	})
