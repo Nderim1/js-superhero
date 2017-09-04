@@ -48,28 +48,28 @@ angular.module('jsSuperheroApp', ['ui.router', 'rzModule'])
 
 		$scope.experienceSlider = {
 			options: {
-			  showTicks: true,
-			  stepsArray: [
-				{value: 0},
-				{value: 1},
-				{value: 2},
-				{value: 3},
-				{value: 4},
-				{value: 5}
-			  ]
+				showTicks: true,
+				stepsArray: [
+					{value: 0},
+					{value: 1},
+					{value: 2},
+					{value: 3},
+					{value: 4},
+					{value: 5}
+				]
 			}
 		}
 
 		$scope.coloredSlider = {
 			options: {
-			  ceil: 100,
-			  showSelectionBar: true,
-			  selectionBarGradient: {
-				from: 'white',
-				to: 'green'
-			  }
+				ceil: 100,
+				showSelectionBar: true,
+				selectionBarGradient: {
+					from: 'white',
+					to: 'green'
+				}
 			}
-		  };
+		};
 
 		$scope.saveData = function() {
 			var dataToSave = {
@@ -78,22 +78,21 @@ angular.module('jsSuperheroApp', ['ui.router', 'rzModule'])
 				frameworks: []
 			}
 
-			$scope.angularjs && dataToSave.frameworks.push($scope.angularOpt),
-			$scope.reactjs && dataToSave.frameworks.push($scope.reactOpt),
-			$scope.vuejs && dataToSave.frameworks.push($scope.vueOpt),
-			$scope.jquery && dataToSave.frameworks.push($scope.jqueryOpt),
+			$scope.angularjs && dataToSave.frameworks.push($scope.angularOpt)
+			$scope.reactjs && dataToSave.frameworks.push($scope.reactOpt)
+			$scope.vuejs && dataToSave.frameworks.push($scope.vueOpt)
+			$scope.jquery && dataToSave.frameworks.push($scope.jqueryOpt)
 			
 			if(dataToSave.frameworks.length){
 				dataService.saveData(dataToSave)
 				$state.go('results')
-			}		
+			}
 		}
 	})
 
 	.controller('resultsController', function($scope, dataService) {
 		
 		dataService.getData(function(data){
-			var allPoints = []
 			data.frameworks.sort(function(a, b){
 				return (b.love + b.experience) - (a.love + a.experience)
 			})
