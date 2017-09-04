@@ -82,9 +82,11 @@ angular.module('jsSuperheroApp', ['ui.router', 'rzModule'])
 			$scope.reactjs && dataToSave.frameworks.push($scope.reactOpt),
 			$scope.vuejs && dataToSave.frameworks.push($scope.vueOpt),
 			$scope.jquery && dataToSave.frameworks.push($scope.jqueryOpt),
-
-			dataService.saveData(dataToSave)
-			$state.go('results')
+			
+			if(dataToSave.frameworks.length){
+				dataService.saveData(dataToSave)
+				$state.go('results')
+			}		
 		}
 	})
 
