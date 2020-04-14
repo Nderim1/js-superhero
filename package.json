@@ -19,6 +19,6 @@
   "homepage": "https://github.com/Nderim1/js-superhero#readme",
   "dependencies": {
     "express": "^4.15.4",
-    "jquery": "^3.2.1"
+    "jquery": "^3.5.0"
   }
 }
